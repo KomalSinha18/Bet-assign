@@ -1,0 +1,33 @@
+{
+  "name": "bet-split-proxy",
+  "version": "1.0.0",
+  "description": "Production-ready Bet Splitting Reverse Proxy Middleware",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch-path=./src src/index.js",
+    "mock:sbo": "node src/mock/sboServer.js",
+    "mock:aggregator": "node src/mock/aggregatorServer.js",
+    "mock:all": "concurrently \"npm run mock:sbo\" \"npm run mock:aggregator\"",
+    "demo": "concurrently \"npm run mock:sbo\" \"npm run mock:aggregator\" \"npm start\"",
+    "test:success": "node src/demo/testSuccess.js",
+    "test:sbo-fail": "node src/demo/testSboFail.js",
+    "test:aggregator-fail": "node src/demo/testAggregatorFail.js",
+    "test:validation": "node src/demo/testValidation.js",
+    "test:all": "node src/demo/runAll.js"
+  },
+  "keywords": ["bet-splitting", "reverse-proxy", "middleware"],
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2",
+    "axios": "^1.7.9",
+    "zod": "^3.24.2",
+    "express-rate-limit": "^7.5.0",
+    "http-proxy-middleware": "^3.0.3",
+    "winston": "^3.17.0",
+    "dotenv": "^16.4.7",
+    "uuid": "^11.1.0",
+    "concurrently": "^9.1.2",
+    "https-proxy-agent": "^7.0.6"
+  }
+}
