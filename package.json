@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch-path=./src src/index.js",
+    "kill-ports": "node src/scripts/kill-ports.js",
+    "predemo": "node src/scripts/kill-ports.js",
     "mock:sbo": "node src/mock/sboServer.js",
     "mock:aggregator": "node src/mock/aggregatorServer.js",
     "mock:all": "concurrently \"npm run mock:sbo\" \"npm run mock:aggregator\"",
